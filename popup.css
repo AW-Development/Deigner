@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@700&family=Montserrat:wght@400;600&display=swap');
+
+:root {
+    --main-bg: #fff;
+    --section-bg: #f5f7fa;
+    --accent: #e71d2b;
+    --accent-hover: #b81520;
+    --tab-bg: #f1f1f3;
+    --border: #e0e0e0;
+    --tab-active-bg: #e71d2b;
+    --tab-active-color: #fff;
+    --text: #212529;
+    --text-light: #67707b;
+    --input-bg: #fff;
+    --button-bg: #212529;
+    --button-color: #fff;
+    --button-secondary-bg: #f1f1f3;
+    --button-secondary-color: #212529;
+    --shadow: 0 1.5px 8px 0 rgba(33,37,41,0.07);
+
+    --font-display: 'Fira Sans Condensed', 'Montserrat', Arial, sans-serif;
+    --font-body: 'Montserrat', Arial, sans-serif;
+}
+
+body.dark-mode {
+    --main-bg: #16181c;
+    --section-bg: #22252b;
+    --accent: #e71d2b;
+    --accent-hover: #b81520;
+    --tab-bg: #2a2d34;
+    --border: #3c4049;
+    --tab-active-bg: #e71d2b;
+    --tab-active-color: #fff;
+    --text: #f8f9fa;
+    --text-light: #a3aab8;
+    --input-bg: #2a2d34;
+    --button-bg: #f8f9fa;
+    --button-color: #16181c;
+    --button-secondary-bg: #2a2d34;
+    --button-secondary-color: #f8f9fa;
+}
+
+
+body {
+    font-family: var(--font-body);
+    font-size: 14px;
+    background-color: var(--main-bg);
+    color: var(--text);
+    margin: 0;
+    width: 650px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+header {
+    display: grid;
+    grid-template-areas: 'logo title' 'logo status';
+    grid-template-columns: 40px 1fr;
+    align-items: center;
+    gap: 0 12px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+}
+header .logo {
+    grid-area: logo;
+}
+header .logo img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+header h1 {
+    grid-area: title;
+    font-family: var(--font-display);
+    font-size: 1.3em;
+    margin: 0;
+    align-self: end;
+}
+.status-message {
+    grid-area: status;
+    margin: 0;
+    font-size: 0.9em;
+    color: var(--text-light);
+    align-self: start;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 16px;
+}
+.tab-button {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.9em;
+    padding: 8px 14px;
+    border: none;
+    background-color: var(--tab-bg);
+    color: var(--text);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+.tab-button:hover {
+    background-color: var(--accent);
+    color: var(--tab-active-color);
+}
+.tab-button.active {
+    background-color: var(--tab-active-bg);
+    color: var(--tab-active-color);
+}
+.tab-button[data-tab="settings-tab"] {
+    margin-left: auto;
+    background: transparent;
+}
+.tab-divider {
+    flex-grow: 1;
+}
+
+.tab-content-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 8px; /* For scrollbar */
+}
+.tab-content {
+    display: none;
+}
+.tab-content.active {
+    display: block;
+}
+
+section {
+    background: var(--section-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+}
+section h2 {
+    font-family: var(--font-display);
+    font-size: 1.1em;
+    margin: 0 0 12px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+section h3 {
+    font-size: 1em;
+    margin: 16px 0 8px 0;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 4px;
+}
+section p {
+    margin: 0 0 8px 0;
+    line-height: 1.5;
+}
+
+.controls {
+    display: flex;
+    gap: 8px;
+    padding-top: 12px;
+    margin-top: auto;
+    border-top: 1px solid var(--border);
+}
+.controls input[type="text"] {
+    flex-grow: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--input-bg);
+    color: var(--text);
+}
+.control-button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.control-button.primary {
+    background: var(--accent);
+    color: #fff;
+}
+.control-button.primary:hover {
+    background: var(--accent-hover);
+}
+.control-button.secondary {
+    background: var(--button-secondary-bg);
+    color: var(--button-secondary-color);
+}
+
+.export-button {
+    font-size: 1.2em;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-light);
+    padding: 2px 6px;
+}
+
+.table-wrapper {
+    max-height: 400px;
+    overflow: auto;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95em;
+}
+th, td {
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    word-break: break-all;
+}
+thead th {
+    background-color: var(--main-bg);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+tbody tr:last-child td {
+    border-bottom: none;
+}
+td pre {
+    white-space: pre-wrap;
+    margin: 0;
+}
+.error-status {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* Settings Tab */
+.setting-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+}
+.toggle-switch {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.toggle-switch input {
+    position: relative;
+    width: 36px;
+    height: 20px;
+    appearance: none;
+    background: #ccc;
+    border-radius: 20px;
+    transition: background .2s;
+    cursor: pointer;
+}
+.toggle-switch input:checked {
+    background: var(--accent);
+}
+.toggle-switch input:after {
+    content: '';
+    position: absolute;
+    left: 2px; top: 2px;
+    width: 16px; height: 16px;
+    background: #fff;
+    border-radius: 50%;
+    transition: left 0.18s;
+    box-shadow: 0 1px 5px rgba(33,37,41,0.11);
+}
+.toggle-switch input:checked:after {
+    left: 18px;
+}
+.toggle-switch span {
+    color: var(--text-light);
+    font-size: 1em;
+    font-weight: 600;
+}
+.no-data-message {
+    font-style: italic;
+    color: var(--text-light);
+    opacity: 0.8;
+}
+
+::-webkit-scrollbar {
+    height: 7px;
+    width: 8px;
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #bbb;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Deigner - Bid Examiner</title>
+    <link rel="stylesheet" href="popup.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <a href="https://www.arenawins.com" target="_blank" rel="designer-app"><img src="https://arenawins.com/wp-content/uploads/2021/02/logo-trans.png"></a>
+            </div>
+            <h1>Deigner - Bid Examiner</h1>
+            <p id="stats" class="status-message">Loading...</p>
+        </header>
+        <nav class="tab-buttons">
+            <button class="tab-button active" data-tab="prebid-tab">Prebid.js</button>
+            <button class="tab-button" data-tab="tam-tab">Amazon TAM</button>
+            <button class="tab-button" data-tab="network-tab">Network</button>
+            <button class="tab-button" data-tab="targeting-tab">Targeting</button>
+            <button class="tab-button" data-tab="ids-tab">IDs</button>
+            <button class="tab-button" data-tab="opensincera-tab">OpenSincera</button>
+            <span class="tab-divider"></span>
+            <button class="tab-button" data-tab="settings-tab" title="Extension Settings"> ⚙️ </button>
+        </nav>
+        <main class="tab-content-container">
+            <div id="prebid-tab" class="tab-content active"></div>
+            <div id="tam-tab" class="tab-content"></div>
+            <div id="network-tab" class="tab-content"></div>
+            <div id="targeting-tab" class="tab-content"></div>
+            <div id="ids-tab" class="tab-content"></div>
+            <div id="opensincera-tab" class="tab-content"></div>
+            <div id="settings-tab" class="tab-content"></div>
+        </main>
+        <div class="controls">
+            <input type="text" id="phrase" placeholder="Count phrase in URLs (e.g., 'bid')">
+            <button id="btn-count" class="control-button secondary">Count</button>
+            <button id="btn-refresh" class="control-button primary">Refresh Data</button>
+            <button id="btn-clear" class="control-button secondary">Clear Data</button>
+        </div>
+    </div>
+    <template id="exportButton">
+        <button class="export-button" title="Export as JSON">⇩</button>
+    </template>
+    <template id="settingsToggle">
+        <div class="setting-item">
+            <label class="toggle-switch">
+                <input type="checkbox">
+                <span></span>
+            </label>
+        </div>
+    </template>
+    <script type="module" src="popup.js"></script>
+</body>
+</html>
